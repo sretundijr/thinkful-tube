@@ -13,13 +13,20 @@ function getDataFromApi(searchTerm, callback) {
 }
 
 function displayYouTubeSearchResults(data) {
-  var resultElement = '';
-  console.log(data.items[0]);
-  resultElement += '<a href='+"https://www.youtube.com/watch?v=" + data.items[0].id.videoId +
-  ' target=_blank><img src=' +data.items[0].snippet.thumbnails.high.url + ' alt=thumbnail></img></a>';
-
-  
-  $('.js-search-results').html(resultElement);
+//   var resultElement = '';
+  var arr = [];
+  console.log(data.items);
+  if(data.item !== 0){
+      arr = data.items.map(function(item){
+        return '<h3>'+item.snippet.channelTitle+'</h3>'+
+                    '<h4>'+item.snippet.description+'</h4>'+
+                    '<a href='+"https://www.youtube.com/watch?v=" + item.id.videoId +' target=_blank>'+
+                        '<img src=' +item.snippet.thumbnails.high.url + ' alt=thumbnail></img>'+
+                    '</a>';
+      })
+  }
+  console.log(arr);
+  $('.js-search-results').html(arr.join(''));
 }
 
 function watchSubmit() {
