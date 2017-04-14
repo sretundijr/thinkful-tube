@@ -21,7 +21,7 @@ function displayYouTubeSearchResults(data) {
       arr = data.items.map(function(item){
         return '<div class="col-4 thumbnails">'+
                   '<div class="img-container">'+
-                '<h3>'+item.snippet.channelTitle+'</h3>'+
+                    '<h3>'+item.snippet.channelTitle+'</h3>'+
                     '<h4>'+item.snippet.description+'</h4>'+
                     '<a href='+"https://www.youtube.com/watch?v=" + item.id.videoId +' target=_blank>'+
                         '<img class="thumbnail-img" src=' +item.snippet.thumbnails.high.url + ' alt=thumbnail></img>'+
