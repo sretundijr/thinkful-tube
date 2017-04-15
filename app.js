@@ -26,7 +26,10 @@ function displayYouTubeSearchResults(data) {
                     '<a href='+"https://www.youtube.com/watch?v=" + item.id.videoId +' target=_blank>'+
                         '<img class="thumbnail-img" src=' +item.snippet.thumbnails.high.url + ' alt=thumbnail></img>'+
                     '</a>'+
-                    '</div>'+
+                    '<a href='+"https://www.youtube.com/channel/" + item.snippet.channelId+' target=_blank>'+
+                      '<p>'+item.snippet.channelTitle+'</p>'+
+                    '</a>'+
+                  '</div>'+
                 '</div>';
       })
   }
